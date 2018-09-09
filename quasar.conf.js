@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'axios',
-      'i18n'
+      'i18n',
+      'flags'
     ],
     css: [
       'app.styl'

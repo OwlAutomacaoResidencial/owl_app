@@ -1,10 +1,36 @@
-
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MyLayout.vue'),
+    path: '/app',
+    component: () => import('layouts/Home'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      {
+        path: '/',
+        component: () => import('pages/Home'),
+        meta: {
+          title: 'Home'
+        }
+      },
+      {
+        path: 'logs',
+        component: () => import('pages/Logs'),
+        meta: {
+          title: 'Logs'
+        }
+      },
+      {
+        path: 'comodosAuth',
+        component: () => import('pages/ComodosAuth'),
+        meta: {
+          title: 'Auth'
+        }
+      },
+      {
+        path: 'sensors',
+        component: () => import('pages/Sensors'),
+        meta: {
+          title: 'Sensors'
+        }
+      }
     ]
   }
 ]
@@ -13,7 +39,7 @@ const routes = [
 if (process.env.MODE !== 'ssr') {
   routes.push({
     path: '*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/Error404')
   })
 }
 
