@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
-      <q-toolbar color="dark">
+      <q-toolbar color="secondary">
         <q-toolbar-title>{{ $route.meta.title }}</q-toolbar-title>
         <q-btn flat dense rounded icon="settings">
           <q-popover anchor="bottom right" self="top right">
@@ -17,7 +17,7 @@
       </q-toolbar>
     </q-layout-header>
     <q-layout-footer>
-      <q-tabs color="dark" animated>
+      <q-tabs color="secondary" animated>
         <q-route-tab slot="title" icon="home" to="/app" exact />
         <q-route-tab slot="title" icon="history" to="/app/logs" exact />
         <q-route-tab slot="title" icon="lock" to="/app/comodosAuth" exact />
