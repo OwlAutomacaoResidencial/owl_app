@@ -40,8 +40,8 @@ export default {
   data () {
     return {
       toggle: false,
-      photo: require('../assets/irrigationn2.png'),
-      profileImg: require('../assets/user.png')
+      photo: '',
+      profileImg: ''
     }
   }
 }

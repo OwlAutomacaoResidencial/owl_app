@@ -1,46 +1,34 @@
 const routes = [
   {
     path: '/app',
-    component: () => import('layouts/Home'),
+    component: () => import('layouts/App'),
     children: [
       {
         path: '/',
-        component: () => import('pages/Home'),
-        meta: {
-          title: 'Home'
-        }
+        name: 'Home',
+        component: () => import('pages/Home')
       },
       {
         path: 'logs',
-        component: () => import('pages/Logs'),
-        meta: {
-          title: 'Logs'
-        }
+        name: 'Logs',
+        component: () => import('pages/Logs')
       },
       {
         path: 'comodosAuth',
-        component: () => import('pages/ComodosAuth'),
-        meta: {
-          title: 'Auth'
-        }
+        name: 'ComodosAuth',
+        component: () => import('pages/ComodosAuth')
       },
       {
         path: 'sensors',
-        component: () => import('pages/Sensors'),
-        meta: {
-          title: 'Sensors'
-        }
+        name: 'Sensors',
+        component: () => import('pages/Sensors')
+      },
+      {
+        path: '*',
+        name: '404',
+        component: () => import('pages/404')
       }
     ]
   }
 ]
-
-// Always leave this as last one
-if (process.env.MODE !== 'ssr') {
-  routes.push({
-    path: '*',
-    component: () => import('pages/Error404')
-  })
-}
-
 export default routes
