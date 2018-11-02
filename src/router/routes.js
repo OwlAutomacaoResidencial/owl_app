@@ -5,6 +5,11 @@ const routes = [
     component: () => import('layouts/Splash')
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('layouts/Login')
+  },
+  {
     path: '/app',
     component: () => import('layouts/App'),
     children: [

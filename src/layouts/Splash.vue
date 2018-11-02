@@ -18,7 +18,7 @@ export default {
   },
   created () {
     setTimeout(() => {
-      this.$router.push('/app')
+      this.$router.push('/login')
     }, 2000)
   }
 }
