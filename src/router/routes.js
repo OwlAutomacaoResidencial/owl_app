@@ -1,5 +1,10 @@
 const routes = [
   {
+    path: '/',
+    name: 'SplashLayout',
+    component: () => import('layouts/Splash')
+  },
+  {
     path: '/app',
     component: () => import('layouts/App'),
     children: [
