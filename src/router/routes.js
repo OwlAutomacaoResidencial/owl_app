@@ -10,13 +10,23 @@ const routes = [
     component: () => import('layouts/Login')
   },
   {
+    path: '/forgot',
+    name: 'ForgotPassword',
+    component: () => import('layouts/ForgotPassword')
+  },
+  {
     path: '/app',
     component: () => import('layouts/App'),
     children: [
       {
         path: '/',
         name: 'Home',
-        component: () => import('pages/Home')
+        // component: () => import('pages/Home'),
+        meta: {
+          showSearch: true,
+          showBack: false,
+          title: 'Início'
+        }
       },
       {
         path: 'logs',

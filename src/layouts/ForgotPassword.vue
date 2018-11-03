@@ -3,12 +3,10 @@
     <div id="blueBack" class="fullBack">
       <div id="logoPadding"><img id="logo" :src="logo" alt="Logo"></div>
       <div id="box" class="bg-white shadow-10">
-        <span id="label" class="block text-center">Login</span>
-        <q-input v-model="email" color="secondary" type="email" float-label="Usuário" />
-        <q-input v-model="password" color="secondary" type="password" float-label="Senha" />
-        <q-btn flat no-caps label="Esqueci minha senha" color="secondary" id="forgotPassword" to="/forgot" exact />
-        <q-btn id="loginBtn" no-caps label="Entrar na minha conta" color="primary" class="block full-width" @click="login" />
-        <q-btn id="registrerBtn" flat no-caps label="Ainda não tenho conta" color="secondary" class="block full-width" />
+        <span id="label" class="block text-center">Esqueci minha senha</span>
+        <span id="text" class="block text-center">Insira seu e-mail vinculado à sua conta para redefinir sua senha</span>
+        <q-input id="emailInput" v-model="email" color="secondary" type="email" float-label="E-mail" />
+        <q-btn id="loginBtn" no-caps label="Recuperar senha" color="primary" class="block full-width" />
       </div>
     </div>
   </div>
@@ -16,21 +14,11 @@
 
 <script>
 export default {
-  name: 'LoginLayout',
+  name: 'ForgotPasswordLayout',
   data () {
     return {
       email: '',
-      password: '',
       logo: require('../assets/logo.png')
-    }
-  },
-  methods: {
-    login () {
-      this.$q.loading.show()
-      setTimeout(() => {
-        this.$q.loading.hide()
-        this.$router.push('/app')
-      }, 2000)
     }
   }
 }
@@ -62,24 +50,24 @@ export default {
   border-radius: 6px;
   padding: 15px;
 }
-#forgotPassword {
-  padding-left: 0;
-  padding-top: 15px;
-  font-weight: 400;
-}
 #loginBtn {
   margin-top: 50px;
   border-radius: 0;
   padding: 15px;
 }
-#registrerBtn {
-  margin-top: 10px;
-  font-weight: 300;
-}
 #label {
   font-size: 18px;
   font-weight: 300;
   color: #555;
+}
+#text {
+  font-size: 16px;
+  font-weight: 300;
+  padding-top: 15px;
+}
+#emailInput {
+  margin-top: 25px;
+  margin-bottom: 50px;
 }
 .fullBack {
   width: 100vw;

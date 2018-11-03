@@ -1,28 +1,30 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
-      <q-toolbar color="secondary">
-        <q-toolbar-title>{{ $route.meta.title }}</q-toolbar-title>
-        <q-btn flat dense rounded icon="settings">
-          <q-popover anchor="bottom right" self="top right">
-            <q-list link no-border>
-              <q-item v-close-overlay><q-item-main label="Editar seu perfil" /></q-item>
-              <q-item v-close-overlay><q-item-main label="Configurações" /></q-item>
-              <q-item v-close-overlay><q-item-main label="Ajuda" /></q-item>
-              <q-item v-close-overlay><q-item-main label="Sobre" /></q-item>
-              <q-item v-close-overlay><q-item-main label="Sair" /></q-item>
-            </q-list>
-          </q-popover>
-        </q-btn>
+      <q-toolbar color="tertiary">
+        <q-btn v-if="this.$route.meta.showBack" flat dense icon="arrow back" />
+        <q-toolbar-title>{{ this.$route.meta.title }}</q-toolbar-title>
+        <q-btn v-if="this.$route.meta.showSearch" flat dense icon="search" />
       </q-toolbar>
     </q-layout-header>
     <q-layout-footer>
-      <q-tabs color="secondary" animated>
-        <q-route-tab slot="title" icon="home" to="/app" exact />
-        <q-route-tab slot="title" icon="history" to="/app/logs" exact />
-        <q-route-tab slot="title" icon="lock" to="/app/comodosAuth" exact />
-        <q-route-tab slot="title" icon="wifi" to="/app/sensors" exact />
-      </q-tabs>
+      <div id="footer" class="row full-width bg-tertiary text-white text-center">
+        <div class="col-2">
+          <img :src="images.sensor" alt="Sensores" class="iconFooter">
+        </div>
+        <div class="col-2">
+          <img :src="images.permission" alt="Sensores" class="iconFooter">
+        </div>
+        <div class="col-4">
+          <img :src="images.home" alt="Sensores" class="iconFooter">
+        </div>
+        <div class="col-2">
+          <img :src="images.ocorrencia" alt="Sensores" class="iconFooter">
+        </div>
+        <div class="col-2">
+          <img :src="images.config" alt="Sensores" class="iconFooter">
+        </div>
+      </div>
     </q-layout-footer>
     <q-page-container>
       <router-view />
@@ -32,9 +34,27 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'AppLayout',
+  data () {
+    return {
+      images: {
+        sensor: require('../assets/lightlist.png'),
+        permission: require('../assets/permissions.png'),
+        home: require('../assets/home.png'),
+        ocorrencia: require('../assets/newspaper.png'),
+        config: require('../assets/settings.png')
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+#footer {
+  padding: 10px;
+}
+.iconFooter {
+  width: 25px;
+  height: 25px;
+}
 </style>
