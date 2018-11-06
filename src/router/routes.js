@@ -29,6 +29,16 @@ const routes = [
         }
       },
       {
+        path: 'config',
+        name: 'Configurations',
+        component: () => import('pages/Config'),
+        meta: {
+          showBack: false,
+          showSearch: false,
+          title: 'Configurações'
+        }
+      },
+      {
         path: 'logs',
         name: 'Logs',
         component: () => import('pages/Logs')
@@ -42,13 +52,13 @@ const routes = [
         path: 'sensors',
         name: 'Sensors',
         component: () => import('pages/Sensors')
-      },
-      {
-        path: '*',
-        name: '404',
-        component: () => import('pages/404')
       }
     ]
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('layouts/404')
   }
 ]
 export default routes
