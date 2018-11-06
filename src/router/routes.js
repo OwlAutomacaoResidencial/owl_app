@@ -39,6 +39,26 @@ const routes = [
         }
       },
       {
+        path: 'about',
+        name: 'About',
+        component: () => import('pages/ConfigAbout'),
+        meta: {
+          showBack: true,
+          showSearch: false,
+          title: 'Sobre'
+        }
+      },
+      {
+        path: 'help',
+        name: 'Help',
+        component: () => import('pages/ConfigHelp'),
+        meta: {
+          showBack: true,
+          showSearch: false,
+          title: 'Ajuda'
+        }
+      },
+      {
         path: 'logs',
         name: 'Logs',
         component: () => import('pages/Logs')

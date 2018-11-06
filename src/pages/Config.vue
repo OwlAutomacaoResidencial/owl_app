@@ -1,14 +1,14 @@
 <template>
   <q-page>
     <q-list no-border>
-      <q-item v-ripple>
+      <q-item to="/app/profile" exact v-ripple>
         <q-item-main>
           <q-item-tile class="text-primary" label>Perfil</q-item-tile>
           <q-item-tile class="itemContent" sublabel>Mudar as configurações do seu perfil</q-item-tile>
         </q-item-main>
       </q-item>
       <q-item-separator />
-      <q-item v-ripple>
+      <q-item to="/app/userInvite" exact v-ripple>
         <q-item-main>
           <q-item-tile class="text-primary" label>Convidar usuários</q-item-tile>
           <q-item-tile class="itemContent" sublabel>Convidar usuários</q-item-tile>
@@ -25,14 +25,14 @@
         <q-item-side right><q-toggle v-model="notifications" /></q-item-side>
       </q-item>
       <q-item-separator />
-      <q-item v-ripple>
+      <q-item to="/app/help" exact v-ripple>
         <q-item-main>
           <q-item-tile class="text-primary" label>Ajuda</q-item-tile>
           <q-item-tile class="itemContent" sublabel>Entre em contato com a empresa</q-item-tile>
         </q-item-main>
       </q-item>
       <q-item-separator />
-      <q-item v-ripple>
+      <q-item to="/app/about" exact v-ripple>
         <q-item-main>
           <q-item-tile class="text-primary" label>Sobre</q-item-tile>
           <q-item-tile class="itemContent" sublabel>Sobre o aplicativo</q-item-tile>
