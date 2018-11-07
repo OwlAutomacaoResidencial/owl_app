@@ -9,19 +9,19 @@
     </q-layout-header>
     <q-layout-footer>
       <div id="footer" class="row full-width bg-tertiary text-white text-center">
-        <div class="colFooter relative-position" v-ripple>
+        <div class="colFooter relative-position" @click="$router.push('/app/sensors')" v-ripple>
           <img :src="images.sensor" alt="Sensores" class="iconFooter">
           <span class="block fontFooterSelector">Sensores</span>
         </div>
-        <div class="colFooter relative-position" v-ripple>
+        <div class="colFooter relative-position" @click="$router.push('/app/comodosAuth')" v-ripple>
           <img :src="images.permission" alt="Sensores" class="iconFooter">
           <span class="block fontFooterSelector">Permissões</span>
         </div>
-        <div class="colFooter relative-position" v-ripple>
+        <div class="colFooter relative-position" @click="$router.push('/app')" v-ripple>
           <img :src="images.home" alt="Sensores" class="iconFooter">
           <span class="block fontFooterSelector">Início</span>
         </div>
-        <div class="colFooter relative-position" v-ripple>
+        <div class="colFooter relative-position" @click="$router.push('/app/logs')" v-ripple>
           <img :src="images.ocorrencia" alt="Sensores" class="iconFooter">
           <span class="block fontFooterSelector">Ocorrências</span>
         </div>

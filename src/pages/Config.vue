@@ -8,14 +8,6 @@
         </q-item-main>
       </q-item>
       <q-item-separator />
-      <q-item to="/app/userInvite" exact v-ripple>
-        <q-item-main>
-          <q-item-tile class="text-primary" label>Convidar usuários</q-item-tile>
-          <q-item-tile class="itemContent" sublabel>Convidar usuários</q-item-tile>
-          <q-item-tile sublabel>Convidar usuários para controlar os sensores da sua residência</q-item-tile>
-        </q-item-main>
-      </q-item>
-      <q-item-separator />
       <q-item>
         <q-item-main>
           <q-item-tile class="text-primary" label>Notificações</q-item-tile>

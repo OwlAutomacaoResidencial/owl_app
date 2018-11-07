@@ -21,7 +21,7 @@ const routes = [
       {
         path: '/',
         name: 'Home',
-        // component: () => import('pages/Home'),
+        component: () => import('pages/Home'),
         meta: {
           showSearch: true,
           showBack: false,
@@ -59,9 +59,24 @@ const routes = [
         }
       },
       {
+        path: 'profile',
+        name: 'Profile',
+        component: () => import('pages/Profile'),
+        meta: {
+          showBack: true,
+          showSearch: false,
+          title: 'Perfil'
+        }
+      },
+      {
         path: 'logs',
         name: 'Logs',
-        component: () => import('pages/Logs')
+        component: () => import('pages/Logs'),
+        meta: {
+          showBack: true,
+          showSearch: true,
+          title: 'Ocorrências'
+        }
       },
       {
         path: 'comodosAuth',

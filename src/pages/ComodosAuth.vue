@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page>
     <h1>Auth</h1>
   </q-page>
 </template>
