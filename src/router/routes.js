@@ -73,7 +73,7 @@ const routes = [
         name: 'Logs',
         component: () => import('pages/Logs'),
         meta: {
-          showBack: true,
+          showBack: false,
           showSearch: true,
           title: 'Ocorrências'
         }
