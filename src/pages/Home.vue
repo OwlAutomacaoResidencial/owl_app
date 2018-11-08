@@ -1,14 +1,14 @@
 <template>
   <q-page id="back">
     <div id="rootUser" class="row">
-      <div class="col-6 row items-center">
+      <div id="user" class="col-6 row items-center">
         <div class="col-12"><img id="userImg" :src="user" alt="User"></div>
         <div class="col-12 text-center text-white">
           <span id="userName" class="block">Nome Sobrenome</span>
           <span id="userLevel" class="block">(Nível do usuário)</span>
         </div>
       </div>
-      <div class="col-6">
+      <div id="labelTemp" class="col-6">
         <div class="col-12 row items-center marginItem">
           <div class="col-3"><img :src="temperatura" alt="Temperatura" class="avatar"></div>
           <div class="col-9 text-white paddingLabel lineThin labelUser">
@@ -80,6 +80,13 @@ export default {
 }
 #userLevel {
   font-size: 12px;
+}
+#user {
+  padding-right: 15px;
+  border-right: 1px solid #666;
+}
+#labelTemp {
+  padding-left: 15px;
 }
 .avatar {
   width: 50px;
