@@ -86,7 +86,12 @@ const routes = [
       {
         path: 'sensors',
         name: 'Sensors',
-        component: () => import('pages/Sensors')
+        component: () => import('pages/Sensors'),
+        meta: {
+          showBack: false,
+          showSearch: true,
+          title: 'Sensores'
+        }
       }
     ]
   },
