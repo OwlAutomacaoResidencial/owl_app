@@ -1,6 +1,6 @@
 <template>
   <q-page id="back">
-    <div id="rootUser" class="row bg-red">
+    <div id="rootUser" class="row">
       <div class="col-6 row items-center">
         <div class="col-12"><img id="userImg" :src="user" alt="User"></div>
         <div class="col-12 text-center text-white">
@@ -64,6 +64,7 @@ export default {
 }
 #rootUser {
   padding: 10px;
+  background-color: #393939;
 }
 #item {
   padding-left: 5px;
