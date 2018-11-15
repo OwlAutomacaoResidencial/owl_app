@@ -1,4 +1,3 @@
-import axios from '../../plugins/axios'
 export default {
   state: {
   },
@@ -8,9 +7,9 @@ export default {
   },
   actions: {
     create ({ commit }, data) {
-      let id = data.id
+      // let id = data.id
       delete data.id
-      axios.put('comodo', data)
+      this.axios.put('comodo', data)
         .then(res => {
           console.log(res.data)
         })

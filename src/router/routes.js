@@ -92,6 +92,16 @@ const routes = [
           showSearch: true,
           title: 'Sensores'
         }
+      },
+      {
+        path: 'sensor/:id',
+        name: 'Sensor Id',
+        component: () => import('pages/SensorView'),
+        meta: {
+          showBack: true,
+          showSearch: true,
+          title: 'Sensores'
+        }
       }
     ]
   },
