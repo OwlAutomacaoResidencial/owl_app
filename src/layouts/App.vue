@@ -8,7 +8,7 @@
     </q-layout-header>
     <q-layout-footer>
       <div id="footer" class="row full-width bg-tertiary text-white text-center">
-        <div class="colFooter relative-position" @click="$router.push('/app/sensors')" v-ripple>
+        <div class="colFooter relative-position full-height" @click="$router.push('/app/sensors')" v-ripple>
           <img :src="images.sensor" alt="Sensores" class="iconFooter">
           <span class="block fontFooterSelector">Sensores</span>
         </div>
@@ -55,15 +55,15 @@ export default {
 
 <style scoped>
 #footer {
-  padding: 10px 0;
+  padding: 0;
 }
 .colFooter {
   width: calc(100vw/5);
   padding: 5px;
-  border-radius: 5px;
 }
 .colFooter:hover {
   background-color: rgba(255, 255, 255, 0.2);
+  border-top: 2px solid white;
 }
 .iconFooter {
   width: 25px;
