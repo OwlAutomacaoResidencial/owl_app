@@ -32,6 +32,10 @@ export default {
         this.$router.push('/app')
       }, 2000)
     }
+  },
+  created () {
+    // this.$store.dispatch('user/login', { login: 'guibperes@gmail.com', passwd: '1234' })
+    // this.$store.dispatch('user/registrer', { email: 'guibperes@gmail.com', senha: '1234', nome: 'Guilherme Beidaki' })
   }
 }
 </script>
