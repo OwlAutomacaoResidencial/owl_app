@@ -12,13 +12,13 @@
         <div class="col-12 row items-center marginItem">
           <div class="col-3"><img :src="temperatura" alt="Temperatura" class="avatar"></div>
           <div class="col-9 text-white paddingLabel lineThin labelUser">
-            <span>Temperatura 25ºC</span>
+            <span class="labelTemp">Temperatura 25ºC</span>
           </div>
         </div>
         <div class="col-12 row items-center marginItem">
           <div class="col-3"><img :src="umidade" alt="Temperatura" class="avatar"></div>
           <div class="col-9 text-white paddingLabel lineThin labelUser">
-            <span>Umidade 70%</span>
+            <span class="labelTemp">Umidade 70%</span>
           </div>
         </div>
       </div>
@@ -85,8 +85,9 @@ export default {
   padding-right: 15px;
   border-right: 1px solid #666;
 }
-#labelTemp {
-  padding-left: 15px;
+.labelTemp {
+  padding-left: 5px;
+  font-size: calc(10px + 0.8vw);
 }
 .avatar {
   width: 50px;
