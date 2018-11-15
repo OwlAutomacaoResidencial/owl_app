@@ -15,7 +15,7 @@
       <q-item-separator />
       <q-item @click.native="openURL('https://owlautomacao.com.br')" v-ripple>
         <q-item-main>
-          <q-item-tile class="text-primary" label>Site</q-item-tile>
+          <q-item-tile class="text-secondary" label>Site</q-item-tile>
           <q-item-tile class="itemContent" sublabel>Ir para o site da empresa</q-item-tile>
         </q-item-main>
         <q-item-side right icon="keyboard arrow right" />

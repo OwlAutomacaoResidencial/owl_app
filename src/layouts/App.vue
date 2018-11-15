@@ -4,7 +4,6 @@
       <q-toolbar color="tertiary">
         <q-btn v-if="this.$route.meta.showBack" flat dense icon="arrow back" @click="$router.back()" />
         <q-toolbar-title>{{ this.$route.meta.title }}</q-toolbar-title>
-        <q-btn v-if="this.$route.meta.showSearch" flat dense round icon="search" size="lg" />
       </q-toolbar>
     </q-layout-header>
     <q-layout-footer>
