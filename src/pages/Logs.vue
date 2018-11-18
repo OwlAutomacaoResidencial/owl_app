@@ -1,16 +1,16 @@
 <template>
   <q-page id="page">
     <q-list no-border>
-      <q-item class="shadow-5 margin bg-white" v-for="x in 5" :key="x">
+      <q-item class="shadow-5 margin bg-white" v-for="item in ocorrencias" :key="item.idOcorrencia">
         <q-item-side>
           <img class="avatar" :src="avatar" alt="Avatar">
         </q-item-side>
         <q-item-main>
-          <q-item-tile class="label" label>Lâmpada - Ligada</q-item-tile>
-          <q-item-tile sublabel>Sala</q-item-tile>
+          <q-item-tile class="label" label>{{ item.sensor }}</q-item-tile>
+          <q-item-tile sublabel>{{ item.comodo }}</q-item-tile>
         </q-item-main>
         <q-item-side right>
-          <q-item-tile sublabel>10/12/2018 às 18:00</q-item-tile>
+          <q-item-tile sublabel>{{ item.dataHora }}</q-item-tile>
         </q-item-side>
       </q-item>
     </q-list>
@@ -24,6 +24,14 @@ export default {
     return {
       avatar: require('../assets/leaves.png')
     }
+  },
+  computed: {
+    ocorrencias () {
+      return this.$store.getters['sensors/ocorrencias']
+    }
+  },
+  created () {
+    this.$store.dispatch('sensors/ocorrencias')
   }
 }
 </script>
