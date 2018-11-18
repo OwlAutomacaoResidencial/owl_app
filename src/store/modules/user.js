@@ -14,7 +14,8 @@ export default {
     }
   },
   getters: {
-    data: state => state.data
+    data: state => state.data,
+    list: state => state.list
   },
   actions: {
     login ({ commit }, data) {
@@ -29,6 +30,7 @@ export default {
         })
         .catch(err => {
           console.log(err)
+          Loading.hide()
         })
     },
     logout () {
@@ -37,7 +39,7 @@ export default {
       router.push('/')
     },
     getAll ({ commit }) {
-      this.axios.get('/usuarios')
+      this.axios.get('usuarios')
         .then(res => {
           commit('setList', res.data)
         })

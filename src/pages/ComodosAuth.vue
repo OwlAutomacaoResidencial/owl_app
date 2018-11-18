@@ -8,10 +8,6 @@
           <div class="itemLabel">Jardim</div>
         </div>
       </q-carousel-slide>
-      <!--q-carousel-control slot="control-nav" slot-scope="carousel" :offset="[5, 50]">
-        <q-btn round dense flat @click="carousel.previous" :disable="!carousel.canGoToPrevious" text-color="grey-7" icon="keyboard_arrow_left" class="float-left" />
-        <q-btn round dense flat @click="carousel.next" :disable="!carousel.canGoToNext" text-color="grey-7" icon="keyboard_arrow_right" class="float-right" />
-      </q-carousel-control-->
     </q-carousel>
     <div class="full-width text-center text-white bg-primary shadow-2 labelComodo marginLabel">Usuários</div>
     <q-carousel class="shadow-2" infinite>
@@ -22,11 +18,8 @@
           <div class="lineWeight">(Permissão)</div>
         </div>
       </q-carousel-slide>
-      <!--q-carousel-control slot="control-nav" slot-scope="carousel" :offset="[5, 50]">
-        <q-btn round dense flat @click="carousel.previous" :disable="!carousel.canGoToPrevious" text-color="grey-7" icon="keyboard_arrow_left" class="float-left" />
-        <q-btn round dense flat @click="carousel.next" :disable="!carousel.canGoToNext" text-color="grey-7" icon="keyboard_arrow_right" class="float-right" />
-      </q-carousel-control-->
     </q-carousel>
+    {{ userList }}
   </q-page>
 </template>
 
@@ -39,6 +32,12 @@ export default {
       user: require('../assets/user.png')
     }
   },
+  computed: {
+    userList () {
+      console.log(this.$store.getters['user/list'])
+      return this.$store.getters['user/list']
+    }
+  },
   methods: {
     userGo (id) {
       this.$router.push(`/app/authUser/${id}`)
@@ -46,6 +45,9 @@ export default {
     comodoGo (id) {
       this.$router.push(`/app/authComodo/${id}`)
     }
+  },
+  created () {
+    this.$store.dispatch('user/getAll')
   }
 }
 </script>

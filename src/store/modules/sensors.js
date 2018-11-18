@@ -17,7 +17,7 @@ export default {
   },
   actions: {
     temperatura ({ commit }) {
-      this.axios.get('/temperaturaAtual')
+      this.axios.get('temperaturaAtual')
         .then(res => {
           commit('setTemperatura', res.data)
         })
@@ -26,7 +26,7 @@ export default {
         })
     },
     umidade ({ commit }) {
-      this.axios.get('/umidadeAtual')
+      this.axios.get('umidadeAtual')
         .then(res => {
           commit('setUmidade', res.data)
         })
