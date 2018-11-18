@@ -26,16 +26,8 @@ export default {
   },
   methods: {
     login () {
-      this.$q.loading.show()
-      setTimeout(() => {
-        this.$q.loading.hide()
-        this.$router.push('/app')
-      }, 2000)
+      this.$store.dispatch('user/login', { login: this.email, passwd: this.password })
     }
-  },
-  created () {
-    // this.$store.dispatch('user/login', { login: 'guibperes@gmail.com', passwd: '1234' })
-    // this.$store.dispatch('user/registrer', { email: 'guibperes@gmail.com', senha: '1234', nome: 'Guilherme Beidaki' })
   }
 }
 </script>

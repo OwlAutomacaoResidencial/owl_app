@@ -2,23 +2,23 @@
   <q-page id="back">
     <div id="rootUser" class="row">
       <div id="user" class="col-6 row items-center">
-        <div class="col-12"><img id="userImg" :src="user" alt="User"></div>
+        <div class="col-12"><img id="userImg" :src="userImg" alt="User"></div>
         <div class="col-12 text-center text-white">
-          <span id="userName" class="block">Nome Sobrenome</span>
-          <span id="userLevel" class="block">(Nível do usuário)</span>
+          <span id="userName" class="block">{{ user.nome }}</span>
+          <span id="userLevel" class="block">({{ user.perfil }})</span>
         </div>
       </div>
       <div id="labelTemp" class="col-6">
         <div class="col-12 row items-center marginItem">
-          <div class="col-3"><img :src="temperatura" alt="Temperatura" class="avatar"></div>
+          <div class="col-3"><img :src="temperaturaImg" alt="Temperatura" class="avatar"></div>
           <div class="col-9 text-white paddingLabel lineThin labelUser">
-            <span class="labelTemp">Temperatura 25ºC</span>
+            <span class="labelTemp">Temperatura {{ temperatura }}ºC</span>
           </div>
         </div>
         <div class="col-12 row items-center marginItem">
-          <div class="col-3"><img :src="umidade" alt="Temperatura" class="avatar"></div>
+          <div class="col-3"><img :src="umidadeImg" alt="Temperatura" class="avatar"></div>
           <div class="col-9 text-white paddingLabel lineThin labelUser">
-            <span class="labelTemp">Umidade 70%</span>
+            <span class="labelTemp">Umidade {{ umidade }}%</span>
           </div>
         </div>
       </div>
@@ -48,12 +48,27 @@ export default {
   data () {
     return {
       avatar: require('../assets/leaves.png'),
-      temperatura: require('../assets/thermometer.png'),
-      umidade: require('../assets/tear.png'),
-      user: require('../assets/user.png'),
+      temperaturaImg: require('../assets/thermometer.png'),
+      umidadeImg: require('../assets/tear.png'),
+      userImg: require('../assets/user.png'),
       toggle: false,
       favoriteIcon: true
     }
+  },
+  computed: {
+    user () {
+      return this.$store.getters['user/data']
+    },
+    temperatura () {
+      return this.$store.getters['sensors/temperatura']
+    },
+    umidade () {
+      return this.$store.getters['sensors/umidade']
+    }
+  },
+  created () {
+    this.$store.dispatch('sensors/temperatura')
+    this.$store.dispatch('sensors/umidade')
   }
 }
 </script>

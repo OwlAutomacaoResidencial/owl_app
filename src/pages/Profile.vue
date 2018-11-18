@@ -11,16 +11,22 @@
       <q-item-main>
         <q-item-tile class="text-primary" label>Dados pessoais</q-item-tile>
         <q-item-tile class="itemContent" sublabel>Nome do perfil</q-item-tile>
-        <q-item-tile sublabel>Nome do usuário</q-item-tile>
+        <q-item-tile sublabel>{{ user.nome }}</q-item-tile>
+      </q-item-main>
+    </q-item>
+    <q-item v-ripple>
+      <q-item-main>
+        <q-item-tile class="itemContent" sublabel>Tipo do Perfil</q-item-tile>
+        <q-item-tile sublabel>{{ user.perfil }}</q-item-tile>
       </q-item-main>
     </q-item>
     <q-item v-ripple>
       <q-item-main>
         <q-item-tile class="itemContent" sublabel>E-mail</q-item-tile>
-        <q-item-tile sublabel>email@email.com</q-item-tile>
+        <q-item-tile sublabel>{{ user.login }}</q-item-tile>
       </q-item-main>
     </q-item>
-    <q-item v-ripple>
+    <!--q-item v-ripple>
       <q-item-main>
         <q-item-tile class="itemContent" sublabel>Data de nascimento</q-item-tile>
         <q-item-tile sublabel>17/12/1998</q-item-tile>
@@ -31,9 +37,9 @@
         <q-item-tile class="itemContent" sublabel>Gênero</q-item-tile>
         <q-item-tile sublabel>Masculino</q-item-tile>
       </q-item-main>
-    </q-item>
+    </q-item-->
     <q-item-separator />
-    <q-item v-ripple>
+    <q-item @click.native="$store.dispatch('user/logout')" v-ripple>
       <q-item-main>
         <q-item-tile class="text-primary" color="negative" label>Sair</q-item-tile>
       </q-item-main>
@@ -43,7 +49,12 @@
 
 <script>
 export default {
-  name: 'ProfilePage'
+  name: 'ProfilePage',
+  computed: {
+    user () {
+      return this.$store.getters['user/data']
+    }
+  }
 }
 </script>
 
