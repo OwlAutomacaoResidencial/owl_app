@@ -10,7 +10,19 @@ export default {
       state.data = data.Usuario
     },
     setList (state, data) {
-      state.list = data
+      let list = []
+      let aux = []
+      data.forEach(e => {
+        aux.push(e)
+        if (aux.length === 3) {
+          list.push(aux)
+          aux = []
+        }
+      })
+      if (aux.length > 0) {
+        list.push(aux)
+      }
+      state.list = list
     }
   },
   getters: {

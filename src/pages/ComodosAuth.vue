@@ -1,25 +1,24 @@
 <template>
   <q-page id="back">
     <div id="firstLabel" class="full-width text-center text-white bg-primary shadow-2 labelComodo">Ambientes</div>
-    <q-carousel class="shadow-2" infinite>
-      <q-carousel-slide class="bg-white row slidePadding" v-for="x in 3" :key="x">
-        <div class="col-4 text-center relative-position" v-for="x in 3" :key="x" @click="comodoGo('10')" v-ripple>
+    <q-carousel class="shadow-2" infinite arrows>
+      <q-carousel-slide class="bg-white row slidePadding" v-for="(slide, index) in comodos" :key="index">
+        <div class="col-4 text-center relative-position" v-for="item in slide" :key="item.idComodo" @click="comodoGo(item.idComodo)" v-ripple>
           <img :src="avatar" alt="Avatar" class="avatar">
-          <div class="itemLabel">Jardim</div>
+          <div class="itemLabel">{{ item.nome }}</div>
         </div>
       </q-carousel-slide>
     </q-carousel>
     <div class="full-width text-center text-white bg-primary shadow-2 labelComodo marginLabel">Usuários</div>
-    <q-carousel class="shadow-2" infinite>
-      <q-carousel-slide class="bg-white row slidePadding" v-for="x in 3" :key="x">
-        <div class="col-4 text-center relative-position" v-for="x in 3" :key="x" @click="userGo('10')" v-ripple>
+    <q-carousel class="shadow-2" infinite arrows>
+      <q-carousel-slide class="bg-white row slidePadding" v-for="(slide, index) in userList" :key="index">
+        <div class="col-4 text-center relative-position" v-for="item in slide" :key="item.codigo" @click="userGo(item.codigo)" v-ripple>
           <img :src="user" alt="Avatar" class="avatar">
-          <div class="itemLabel">Guilherme Beidaki</div>
-          <div class="lineWeight">(Permissão)</div>
+          <div class="itemLabel">{{ item.nome }}</div>
+          <div class="lineWeight">({{ item.perfil }})</div>
         </div>
       </q-carousel-slide>
     </q-carousel>
-    {{ userList }}
   </q-page>
 </template>
 
@@ -34,8 +33,10 @@ export default {
   },
   computed: {
     userList () {
-      console.log(this.$store.getters['user/list'])
       return this.$store.getters['user/list']
+    },
+    comodos () {
+      return this.$store.getters['comodos/list']
     }
   },
   methods: {
@@ -48,6 +49,7 @@ export default {
   },
   created () {
     this.$store.dispatch('user/getAll')
+    this.$store.dispatch('comodos/get')
   }
 }
 </script>

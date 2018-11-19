@@ -98,7 +98,6 @@ export default {
 }
 #user {
   padding-right: 15px;
-  border-right: 1px solid #666;
 }
 .labelTemp {
   padding-left: 5px;
