@@ -8,25 +8,9 @@
     </q-layout-header>
     <q-layout-footer>
       <div id="footer" class="row full-width bg-tertiary text-white text-center">
-        <div class="colFooter relative-position full-height" @click="$router.push('/app/sensors')" v-ripple>
-          <img :src="images.sensor" alt="Sensores" class="iconFooter">
-          <span class="block fontFooterSelector">Sensores</span>
-        </div>
-        <div class="colFooter relative-position" @click="$router.push('/app/comodosAuth')" v-ripple>
-          <img :src="images.permission" alt="Sensores" class="iconFooter">
-          <span class="block fontFooterSelector">Permissões</span>
-        </div>
-        <div class="colFooter relative-position" @click="$router.push('/app')" v-ripple>
-          <img :src="images.home" alt="Sensores" class="iconFooter">
-          <span class="block fontFooterSelector">Início</span>
-        </div>
-        <div class="colFooter relative-position" @click="$router.push('/app/logs')" v-ripple>
-          <img :src="images.ocorrencia" alt="Sensores" class="iconFooter">
-          <span class="block fontFooterSelector">Ocorrências</span>
-        </div>
-        <div class="colFooter relative-position" @click="$router.push('/app/config')" v-ripple>
-          <img :src="images.config" alt="Sensores" class="iconFooter">
-          <span class="block fontFooterSelector">Configurações</span>
+        <div class="colFooter relative-position full-height" :class="{ selected: item.selected }" @click="changeRoute(item.id, item.route)" v-ripple v-for="item in footerOptions" :key="item.id">
+          <img :src="item.img" class="iconFooter">
+          <span class="block fontFooterSelector">{{ item.nome }}</span>
         </div>
       </div>
     </q-layout-footer>
@@ -41,13 +25,21 @@ export default {
   name: 'AppLayout',
   data () {
     return {
-      images: {
-        sensor: require('../assets/lightlist.png'),
-        permission: require('../assets/permissions.png'),
-        home: require('../assets/home.png'),
-        ocorrencia: require('../assets/newspaper.png'),
-        config: require('../assets/settings.png')
-      }
+      footerOptions: [
+        { id: 1, nome: 'Sensores', img: require('../assets/lightlist.png'), route: '/app/sensors', selected: false },
+        { id: 2, nome: 'Permissões', img: require('../assets/permissions.png'), route: '/app/comodosAuth', selected: false },
+        { id: 3, nome: 'Início', img: require('../assets/home.png'), route: '/app', selected: true },
+        { id: 4, nome: 'Ocorrências', img: require('../assets/newspaper.png'), route: '/app/logs', selected: false },
+        { id: 5, nome: 'Configurações', img: require('../assets/settings.png'), route: '/app/config', selected: false }
+      ]
+    }
+  },
+  methods: {
+    changeRoute (id, route) {
+      let oldItem = this.footerOptions.findIndex(e => e.selected && e.id !== id)
+      this.footerOptions[oldItem].selected = false
+      this.footerOptions[id - 1].selected = true
+      this.$router.push(route)
     }
   }
 }
@@ -61,7 +53,7 @@ export default {
   width: calc(100vw/5);
   padding: 5px;
 }
-.colFooter:hover {
+.selected {
   background-color: rgba(255, 255, 255, 0.2);
   border-top: 2px solid white;
 }

@@ -69,6 +69,10 @@ export default {
   created () {
     this.$store.dispatch('sensors/temperatura')
     this.$store.dispatch('sensors/umidade')
+    setInterval(() => {
+      this.$store.dispatch('sensors/temperatura')
+      this.$store.dispatch('sensors/umidade')
+    }, 60000)
   }
 }
 </script>
