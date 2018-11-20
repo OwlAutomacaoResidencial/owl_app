@@ -39,6 +39,7 @@
         </q-item>
       </q-list>
     </div>
+    {{ list }}
   </q-page>
 </template>
 
@@ -64,11 +65,16 @@ export default {
     },
     umidade () {
       return this.$store.getters['sensors/umidade']
+    },
+    list () {
+      console.log(this.$store.getters['sensors/list'])
+      return this.$store.getters['sensors/list']
     }
   },
   created () {
     this.$store.dispatch('sensors/temperatura')
     this.$store.dispatch('sensors/umidade')
+    this.$store.dispatch('sensors/list', window.localStorage.getItem('UserId'))
     setInterval(() => {
       this.$store.dispatch('sensors/temperatura')
       this.$store.dispatch('sensors/umidade')

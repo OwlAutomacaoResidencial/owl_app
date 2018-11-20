@@ -35,6 +35,7 @@ export default {
       this.axios.post('login', data)
         .then(res => {
           window.localStorage.setItem('Token', res.data.token)
+          window.localStorage.setItem('UserId', res.data.Usuario.codigo)
           this.axios.defaults.headers.common['Authorization'] = res.data.token
           commit('setData', res.data)
           Loading.hide()

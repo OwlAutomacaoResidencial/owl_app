@@ -2,7 +2,8 @@ export default {
   state: {
     temperatura: 0,
     umidade: 0,
-    ocorrencias: []
+    ocorrencias: [],
+    list: []
   },
   mutations: {
     setTemperatura (state, data) {
@@ -21,12 +22,16 @@ export default {
         e.dataHora = splitDate.join(' ')
       })
       state.ocorrencias = data
+    },
+    setList (state, data) {
+      state.list = data
     }
   },
   getters: {
     temperatura: state => state.temperatura,
     umidade: state => state.umidade,
-    ocorrencias: state => state.ocorrencias
+    ocorrencias: state => state.ocorrencias,
+    list: state => state.list
   },
   actions: {
     temperatura ({ commit }) {
@@ -51,6 +56,15 @@ export default {
       this.axios.get('ocorrencias')
         .then(res => {
           commit('setOcorrencias', res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    list ({ commit }, id) {
+      this.axios.get(`/usuarioSensor/${id}`)
+        .then(res => {
+          commit('setList', res.data)
         })
         .catch(err => {
           console.log(err)
